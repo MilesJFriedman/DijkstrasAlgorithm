@@ -22,6 +22,9 @@ public class ShortestPath {
 		int numOfMaps = input.nextInt();
 		int m = 0;
 		
+		//for each test case...
+		for (m = 0; m < numOfMaps; m++) {
+			
 			int numOfIntersections = input.nextInt();
 		
 			//create an adjacency matrix to hold the edge weights (or distance between points)
@@ -58,7 +61,7 @@ public class ShortestPath {
 			dijkstrasAlgorithm (m, adjMatrix, numOfIntersections, startPoint, endPoint, pathEstimates, parentIntersections, shortestPath);
 
 			//Print out the desired output:
-			System.out.printf("Map #%d \nThe shortest distance between %d and %d is %.2f\n", m+1, startPoint, endPoint, pathEstimates[endPoint]);
+			System.out.printf("\nMap #%d \nThe shortest distance between %d and %d is %.2f\n", m+1, startPoint, endPoint, pathEstimates[endPoint]);
 			//Print out the shortest path
 			System.out.printf("The shortest path from %d to %d is ", startPoint, endPoint);
 			while (shortestPath.isEmpty() == false) {
@@ -66,6 +69,10 @@ public class ShortestPath {
 				if (shortestPath.isEmpty() == false)
 					System.out.print("->");
 			}
+			
+			System.out.println();
+		
+		}
 			
 			
 	}
