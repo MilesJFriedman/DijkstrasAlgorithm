@@ -9,15 +9,15 @@ import java.util.Scanner;
 /**
  * ShortestPath.java
  * 
- * @author Miles
- * @version 6/29/14
+ * @author Miles 
+ * @version 7/1/14
  */
 public class ShortestPath {
 
 	
 	public static void main(String[] args) throws Exception {
 		//Place input file in the file reader here:
-		Scanner input = new Scanner(new FileReader("C:\\Users\\Miles\\workspace\\COP3503 - Computer Science II\\src\\homework4Dijkstras\\input.txt"));
+		Scanner input = new Scanner(new FileReader("C:\\Users\\Miles\\workspace\\COP3503 - Computer Science II\\src\\homework4Dijkstras\\input3.txt"));
 	
 		int numOfMaps = input.nextInt();
 		int m = 0;
@@ -51,7 +51,6 @@ public class ShortestPath {
 			for (int i = 0; i < numOfIntersections; i++) {
 				pathEstimates[i] = Double.MAX_VALUE;
 				parentIntersections[i] = -1;
-				//System.out.print(parentIntersections[i] + " ");
 			}
 			
 			//Create an linkedList to hold the set which will contain the shortest path.
@@ -86,7 +85,7 @@ public class ShortestPath {
 			remainingPoints.add(i);
 		}
 		
-		remainingPoints.remove(startPoint);
+		remainingPoints.remove(Integer.valueOf(startPoint));
 		
 		//loop through each index of the start points adjacency array and update the path estimates.
 		for (int i = 0; i < maxIndex; i++) {
@@ -112,7 +111,7 @@ public class ShortestPath {
 			}
 		}
 		
-		remainingPoints.remove(next);
+		remainingPoints.remove(Integer.valueOf(next));
 		
 		//repeat a similar process to the one above stopping once the endPoint has been found.
 		while (remainingPoints.contains(endPoint)) {
@@ -141,11 +140,7 @@ public class ShortestPath {
 				}
 			}
 			
-			remainingPoints.remove(0);
-			/*if (remainingPoints.size() == 1)
-				remainingPoints.add(-1);
-			System.out.println(next);
-		    System.out.println(remainingPoints.remove(next));*/
+			remainingPoints.remove(Integer.valueOf(next));
 		
 		}
 		
